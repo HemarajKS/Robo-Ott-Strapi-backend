@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tv_serieses",
+  "info": {
+    "singularName": "tv-series",
+    "pluralName": "tv-serieses",
+    "displayName": "TVSeries",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::content-type.content-type"
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "contentRating": {
+      "type": "string",
+      "required": true
+    },
+    "genre": {
+      "type": "string",
+      "required": false
+    },
+    "poster": {
+      "type": "string",
+      "required": true
+    },
+    "formattedDuration": {
+      "type": "string"
+    },
+    "releaseDate": {
+      "type": "date"
+    },
+    "actors": {
+      "type": "string"
+    },
+    "director": {
+      "type": "string"
+    },
+    "creator": {
+      "type": "string"
+    },
+    "audio": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "availableForOffline": {
+      "type": "string"
+    },
+    "numberOfSeasons": {
+      "type": "integer"
+    },
+    "seasonStartDate": {
+      "type": "date"
+    },
+    "source": {
+      "type": "string"
+    },
+    "sourceLink": {
+      "type": "string"
+    },
+    "uniqId": {
+      "type": "uid"
+    },
+    "scrapedAt": {
+      "type": "datetime"
+    }
+  }
+}
