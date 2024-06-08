@@ -77,13 +77,14 @@
     "scrapedAt": {
       "type": "datetime"
     },
-    "uniqId": {
-      "type": "uid"
-    },
     "type": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::content-type.content-type"
+    },
+    "uniqueId": {
+      "type": "customField",
+      "customField": "plugin::strapi-advanced-uuid.uuid"
     }
   }
 }

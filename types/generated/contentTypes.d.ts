@@ -897,12 +897,13 @@ export interface ApiMovieMovie extends Schema.CollectionType {
     seasonStartDate: Attribute.Date;
     sourceLink: Attribute.String;
     scrapedAt: Attribute.DateTime;
-    uniqId: Attribute.UID;
     type: Attribute.Relation<
       'api::movie.movie',
       'oneToOne',
       'api::content-type.content-type'
     >;
+    uniqueId: Attribute.UID &
+      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
