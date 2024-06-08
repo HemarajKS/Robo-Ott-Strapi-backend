@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carousels",
+  "info": {
+    "singularName": "carousel",
+    "pluralName": "carousels",
+    "displayName": "Carousel",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "contents": {
+      "type": "dynamiczone",
+      "components": [
+        "carousel-items.tv-series"
+      ]
+    }
+  }
+}

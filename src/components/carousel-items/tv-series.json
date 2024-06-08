@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_carousel_items_tv_series",
+  "info": {
+    "displayName": "TVSeries"
+  },
+  "options": {},
+  "attributes": {
+    "tv_series": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tv-series.tv-series"
+    }
+  }
+}

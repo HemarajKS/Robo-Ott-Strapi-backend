@@ -1,7 +1,8 @@
 {
   "collectionName": "components_page_components_rails",
   "info": {
-    "displayName": "Rails"
+    "displayName": "Rails",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -22,6 +23,11 @@
       ],
       "default": "Rails",
       "required": true
+    },
+    "carousels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::carousel.carousel"
     }
   }
 }

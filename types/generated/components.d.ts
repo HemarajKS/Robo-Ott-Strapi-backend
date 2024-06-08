@@ -1,5 +1,19 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface CarouselItemsTvSeries extends Schema.Component {
+  collectionName: 'components_carousel_items_tv_series';
+  info: {
+    displayName: 'TVSeries';
+  };
+  attributes: {
+    tv_series: Attribute.Relation<
+      'carousel-items.tv-series',
+      'oneToMany',
+      'api::tv-series.tv-series'
+    >;
+  };
+}
+
 export interface CurationCuration extends Schema.Component {
   collectionName: 'components_curation_curations';
   info: {
@@ -79,6 +93,7 @@ export interface PageComponentsRails extends Schema.Component {
   collectionName: 'components_page_components_rails';
   info: {
     displayName: 'Rails';
+    description: '';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
@@ -87,12 +102,18 @@ export interface PageComponentsRails extends Schema.Component {
     packageType: Attribute.Enumeration<['Rails']> &
       Attribute.Required &
       Attribute.DefaultTo<'Rails'>;
+    carousels: Attribute.Relation<
+      'page-components.rails',
+      'oneToMany',
+      'api::carousel.carousel'
+    >;
   };
 }
 
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'carousel-items.tv-series': CarouselItemsTvSeries;
       'curation.curation': CurationCuration;
       'meta.seo': MetaSeo;
       'page-components.faq': PageComponentsFaq;
