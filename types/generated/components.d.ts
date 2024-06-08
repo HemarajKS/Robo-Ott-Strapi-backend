@@ -47,7 +47,7 @@ export interface PageComponentsFaq extends Schema.Component {
     packageType: Attribute.Enumeration<['FAQ']> &
       Attribute.Required &
       Attribute.DefaultTo<'FAQ'>;
-    faqs: Attribute.Relation<
+    contents: Attribute.Relation<
       'page-components.faq',
       'oneToMany',
       'api::faq.faq'

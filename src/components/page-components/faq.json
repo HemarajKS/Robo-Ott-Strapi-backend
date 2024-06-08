@@ -29,7 +29,7 @@
       "default": "FAQ",
       "required": true
     },
-    "faqs": {
+    "contents": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::faq.faq"
