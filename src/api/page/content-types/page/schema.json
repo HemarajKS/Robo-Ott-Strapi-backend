@@ -21,6 +21,15 @@
       "type": "component",
       "repeatable": false,
       "component": "curation.curation"
+    },
+    "packages": {
+      "type": "dynamiczone",
+      "components": [
+        "page-components.faq",
+        "page-components.hero",
+        "page-components.rails"
+      ],
+      "required": true
     }
   }
 }

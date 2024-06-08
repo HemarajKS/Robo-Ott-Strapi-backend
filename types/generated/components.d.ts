@@ -36,6 +36,7 @@ export interface PageComponentsFaq extends Schema.Component {
   collectionName: 'components_page_components_faqs';
   info: {
     displayName: 'FAQ';
+    description: '';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
@@ -46,6 +47,11 @@ export interface PageComponentsFaq extends Schema.Component {
     packageType: Attribute.Enumeration<['FAQ']> &
       Attribute.Required &
       Attribute.DefaultTo<'FAQ'>;
+    faqs: Attribute.Relation<
+      'page-components.faq',
+      'oneToMany',
+      'api::faq.faq'
+    >;
   };
 }
 

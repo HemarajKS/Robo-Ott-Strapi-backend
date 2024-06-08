@@ -4,7 +4,8 @@
   "info": {
     "singularName": "faq",
     "pluralName": "faqs",
-    "displayName": "FAQ"
+    "displayName": "FAQ",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,7 +17,8 @@
       "required": true
     },
     "accordionDescription": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }
