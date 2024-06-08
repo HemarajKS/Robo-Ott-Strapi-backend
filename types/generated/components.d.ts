@@ -59,6 +59,7 @@ export interface PageComponentsHero extends Schema.Component {
   collectionName: 'components_page_components_heroes';
   info: {
     displayName: 'Hero';
+    description: '';
   };
   attributes: {
     packageType: Attribute.Enumeration<['Hero']> &
@@ -66,6 +67,11 @@ export interface PageComponentsHero extends Schema.Component {
       Attribute.DefaultTo<'Hero'>;
     title: Attribute.String;
     description: Attribute.Text;
+    hero: Attribute.Relation<
+      'page-components.hero',
+      'oneToOne',
+      'api::hero.hero'
+    >;
   };
 }
 

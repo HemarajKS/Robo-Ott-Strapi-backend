@@ -787,39 +787,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiComponentTypeComponentType extends Schema.CollectionType {
-  collectionName: 'component_types';
-  info: {
-    singularName: 'component-type';
-    pluralName: 'component-types';
-    displayName: 'componentType';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    type: Attribute.String & Attribute.Required;
-    description: Attribute.Text;
-    name: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::component-type.component-type',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::component-type.component-type',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiContentTypeContentType extends Schema.CollectionType {
   collectionName: 'content_types';
   info: {
@@ -843,36 +810,6 @@ export interface ApiContentTypeContentType extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::content-type.content-type',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiDashbordDashbord extends Schema.CollectionType {
-  collectionName: 'dashbords';
-  info: {
-    singularName: 'dashbord';
-    pluralName: 'dashbords';
-    displayName: 'dashbord';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    dashboard: Attribute.DynamicZone<[]>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::dashbord.dashbord',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::dashbord.dashbord',
       'oneToOne',
       'admin::user'
     > &
@@ -904,27 +841,26 @@ export interface ApiFaqFaq extends Schema.CollectionType {
   };
 }
 
-export interface ApiMetaMeta extends Schema.CollectionType {
-  collectionName: 'metas';
+export interface ApiHeroHero extends Schema.CollectionType {
+  collectionName: 'heroes';
   info: {
-    singularName: 'meta';
-    pluralName: 'metas';
-    displayName: 'meta';
+    singularName: 'hero';
+    pluralName: 'heroes';
+    displayName: 'Hero';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    runtime_env: Attribute.String &
-      Attribute.Required &
-      Attribute.DefaultTo<'development'>;
-    version: Attribute.String & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    image: Attribute.Media<'images', true> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::meta.meta', 'oneToOne', 'admin::user'> &
+    createdBy: Attribute.Relation<'api::hero.hero', 'oneToOne', 'admin::user'> &
       Attribute.Private;
-    updatedBy: Attribute.Relation<'api::meta.meta', 'oneToOne', 'admin::user'> &
+    updatedBy: Attribute.Relation<'api::hero.hero', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -984,43 +920,6 @@ export interface ApiMovieMovie extends Schema.CollectionType {
   };
 }
 
-export interface ApiPackagePackage extends Schema.CollectionType {
-  collectionName: 'packages';
-  info: {
-    singularName: 'package';
-    pluralName: 'packages';
-    displayName: 'package';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    component_type: Attribute.Relation<
-      'api::package.package',
-      'oneToOne',
-      'api::component-type.component-type'
-    >;
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.String;
-    cta: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::package.package',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::package.package',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiPagePage extends Schema.CollectionType {
   collectionName: 'pages';
   info: {
@@ -1045,36 +944,6 @@ export interface ApiPagePage extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiSingleSingle extends Schema.SingleType {
-  collectionName: 'singles';
-  info: {
-    singularName: 'single';
-    pluralName: 'singles';
-    displayName: 'single';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    hello: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::single.single',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::single.single',
-      'oneToOne',
-      'admin::user'
-    > &
       Attribute.Private;
   };
 }
@@ -1152,15 +1021,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::component-type.component-type': ApiComponentTypeComponentType;
       'api::content-type.content-type': ApiContentTypeContentType;
-      'api::dashbord.dashbord': ApiDashbordDashbord;
       'api::faq.faq': ApiFaqFaq;
-      'api::meta.meta': ApiMetaMeta;
+      'api::hero.hero': ApiHeroHero;
       'api::movie.movie': ApiMovieMovie;
-      'api::package.package': ApiPackagePackage;
       'api::page.page': ApiPagePage;
-      'api::single.single': ApiSingleSingle;
       'api::tv-series.tv-series': ApiTvSeriesTvSeries;
     }
   }

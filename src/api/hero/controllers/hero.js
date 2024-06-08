@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * package controller
+ * hero controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::package.package');
+module.exports = createCoreController('api::hero.hero');

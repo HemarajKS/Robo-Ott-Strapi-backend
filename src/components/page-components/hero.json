@@ -1,7 +1,8 @@
 {
   "collectionName": "components_page_components_heroes",
   "info": {
-    "displayName": "Hero"
+    "displayName": "Hero",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -18,6 +19,11 @@
     },
     "description": {
       "type": "text"
+    },
+    "hero": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::hero.hero"
     }
   }
 }

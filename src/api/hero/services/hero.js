@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * single service
+ * hero service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::single.single');
+module.exports = createCoreService('api::hero.hero');
