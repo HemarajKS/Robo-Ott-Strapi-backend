@@ -847,6 +847,7 @@ export interface ApiHeroHero extends Schema.CollectionType {
     singularName: 'hero';
     pluralName: 'heroes';
     displayName: 'Hero';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -854,7 +855,7 @@ export interface ApiHeroHero extends Schema.CollectionType {
   attributes: {
     title: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
-    image: Attribute.Media<'images', true> & Attribute.Required;
+    image: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

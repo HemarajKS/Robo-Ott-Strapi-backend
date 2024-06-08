@@ -20,9 +20,9 @@
     "description": {
       "type": "text"
     },
-    "hero": {
+    "contents": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::hero.hero"
     }
   }

@@ -67,9 +67,9 @@ export interface PageComponentsHero extends Schema.Component {
       Attribute.DefaultTo<'Hero'>;
     title: Attribute.String;
     description: Attribute.Text;
-    hero: Attribute.Relation<
+    contents: Attribute.Relation<
       'page-components.hero',
-      'oneToOne',
+      'oneToMany',
       'api::hero.hero'
     >;
   };
