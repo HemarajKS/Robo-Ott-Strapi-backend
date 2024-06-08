@@ -850,6 +850,84 @@ export interface ApiContentTypeContentType extends Schema.CollectionType {
   };
 }
 
+export interface ApiDashbordDashbord extends Schema.CollectionType {
+  collectionName: 'dashbords';
+  info: {
+    singularName: 'dashbord';
+    pluralName: 'dashbords';
+    displayName: 'dashbord';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    dashboard: Attribute.DynamicZone<[]>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dashbord.dashbord',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dashbord.dashbord',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFaqFaq extends Schema.CollectionType {
+  collectionName: 'faqs';
+  info: {
+    singularName: 'faq';
+    pluralName: 'faqs';
+    displayName: 'FAQ';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    accordionTitle: Attribute.String & Attribute.Required;
+    accordionDescription: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMetaMeta extends Schema.CollectionType {
+  collectionName: 'metas';
+  info: {
+    singularName: 'meta';
+    pluralName: 'metas';
+    displayName: 'meta';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    runtime_env: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'development'>;
+    version: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::meta.meta', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::meta.meta', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMovieMovie extends Schema.CollectionType {
   collectionName: 'movies';
   info: {
@@ -901,6 +979,67 @@ export interface ApiMovieMovie extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPackagePackage extends Schema.CollectionType {
+  collectionName: 'packages';
+  info: {
+    singularName: 'package';
+    pluralName: 'packages';
+    displayName: 'package';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    component_type: Attribute.Relation<
+      'api::package.package',
+      'oneToOne',
+      'api::component-type.component-type'
+    >;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.String;
+    cta: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::package.package',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::package.package',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPagePage extends Schema.CollectionType {
+  collectionName: 'pages';
+  info: {
+    singularName: 'page';
+    pluralName: 'pages';
+    displayName: 'Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    meta: Attribute.Component<'meta.seo'>;
+    curation: Attribute.Component<'curation.curation'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -980,7 +1119,12 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::component-type.component-type': ApiComponentTypeComponentType;
       'api::content-type.content-type': ApiContentTypeContentType;
+      'api::dashbord.dashbord': ApiDashbordDashbord;
+      'api::faq.faq': ApiFaqFaq;
+      'api::meta.meta': ApiMetaMeta;
       'api::movie.movie': ApiMovieMovie;
+      'api::package.package': ApiPackagePackage;
+      'api::page.page': ApiPagePage;
       'api::tv-series.tv-series': ApiTvSeriesTvSeries;
     }
   }

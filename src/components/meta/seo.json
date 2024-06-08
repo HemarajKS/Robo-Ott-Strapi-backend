@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_meta_seos",
+  "info": {
+    "displayName": "SEO",
+    "icon": "search",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "apiVersion": {
+      "type": "string",
+      "required": true,
+      "default": "1.0.0",
+      "regex": "\\b\\d+(\\.\\d+){2}\\b"
+    },
+    "runtimeEnv": {
+      "type": "enumeration",
+      "enum": [
+        "development",
+        "production"
+      ],
+      "default": "development",
+      "required": true
+    }
+  }
+}

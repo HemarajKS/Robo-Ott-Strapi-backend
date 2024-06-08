@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_page_components_rails",
+  "info": {
+    "displayName": "Rails"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "cta": {
+      "type": "string"
+    },
+    "packageType": {
+      "type": "enumeration",
+      "enum": [
+        "Rails"
+      ],
+      "default": "Rails",
+      "required": true
+    }
+  }
+}

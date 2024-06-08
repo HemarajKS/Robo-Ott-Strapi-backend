@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_page_components_faqs",
+  "info": {
+    "displayName": "FAQ"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "itemType": {
+      "type": "enumeration",
+      "enum": [
+        "static"
+      ],
+      "required": true,
+      "default": "static"
+    },
+    "packageType": {
+      "type": "enumeration",
+      "enum": [
+        "FAQ"
+      ],
+      "default": "FAQ",
+      "required": true
+    }
+  }
+}

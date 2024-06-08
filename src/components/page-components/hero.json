@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_page_components_heroes",
+  "info": {
+    "displayName": "Hero"
+  },
+  "options": {},
+  "attributes": {
+    "packageType": {
+      "type": "enumeration",
+      "enum": [
+        "Hero"
+      ],
+      "required": true,
+      "default": "Hero"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}
