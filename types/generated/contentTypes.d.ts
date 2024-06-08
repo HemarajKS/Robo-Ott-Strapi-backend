@@ -985,8 +985,9 @@ export interface ApiTvSeriesTvSeries extends Schema.CollectionType {
     seasonStartDate: Attribute.Date;
     source: Attribute.String;
     sourceLink: Attribute.String;
-    uniqId: Attribute.UID;
     scrapedAt: Attribute.DateTime;
+    uniqueId: Attribute.UID &
+      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

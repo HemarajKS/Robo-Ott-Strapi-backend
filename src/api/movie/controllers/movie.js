@@ -7,7 +7,6 @@
 const { createCoreController } = require("@strapi/strapi").factories;
 
 module.exports = createCoreController("api::movie.movie", () => {
-  console.log("object");
   return {
     async find(ctx) {
       ctx.query = { ...ctx.query, locale: "en" };

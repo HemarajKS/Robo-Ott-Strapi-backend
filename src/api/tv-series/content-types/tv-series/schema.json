@@ -77,11 +77,12 @@
     "sourceLink": {
       "type": "string"
     },
-    "uniqId": {
-      "type": "uid"
-    },
     "scrapedAt": {
       "type": "datetime"
+    },
+    "uniqueId": {
+      "type": "customField",
+      "customField": "plugin::strapi-advanced-uuid.uuid"
     }
   }
 }
