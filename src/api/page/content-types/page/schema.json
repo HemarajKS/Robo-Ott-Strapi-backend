@@ -27,7 +27,8 @@
       "components": [
         "page-components.faq",
         "page-components.hero",
-        "page-components.rails"
+        "page-components.rails",
+        "page-components.banner"
       ],
       "required": true
     },

@@ -961,7 +961,12 @@ export interface ApiPagePage extends Schema.CollectionType {
     meta: Attribute.Component<'meta.seo'>;
     curation: Attribute.Component<'curation.curation'>;
     packages: Attribute.DynamicZone<
-      ['page-components.faq', 'page-components.hero', 'page-components.rails']
+      [
+        'page-components.faq',
+        'page-components.hero',
+        'page-components.rails',
+        'page-components.banner'
+      ]
     > &
       Attribute.Required;
     slug: Attribute.UID;

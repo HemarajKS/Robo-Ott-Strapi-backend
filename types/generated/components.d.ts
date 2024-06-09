@@ -95,6 +95,25 @@ export interface MetaSeo extends Schema.Component {
   };
 }
 
+export interface PageComponentsBanner extends Schema.Component {
+  collectionName: 'components_page_components_banners';
+  info: {
+    displayName: 'Banner';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    packageType: Attribute.Enumeration<['Banner']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'Banner'>;
+    contents: Attribute.Relation<
+      'page-components.banner',
+      'oneToMany',
+      'api::movie.movie'
+    >;
+  };
+}
+
 export interface PageComponentsFaq extends Schema.Component {
   collectionName: 'components_page_components_faqs';
   info: {
@@ -181,6 +200,7 @@ declare module '@strapi/types' {
       'menu.item': MenuItem;
       'menu.sub-menu': MenuSubMenu;
       'meta.seo': MetaSeo;
+      'page-components.banner': PageComponentsBanner;
       'page-components.faq': PageComponentsFaq;
       'page-components.hero': PageComponentsHero;
       'page-components.rails': PageComponentsRails;

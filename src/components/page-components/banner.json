@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_page_components_banners",
+  "info": {
+    "displayName": "Banner"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "packageType": {
+      "type": "enumeration",
+      "enum": [
+        "Banner"
+      ],
+      "default": "Banner",
+      "required": true
+    },
+    "contents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::movie.movie"
+    }
+  }
+}
