@@ -9,7 +9,12 @@ const { createCoreController } = require("@strapi/strapi").factories;
 module.exports = createCoreController("api::page.page", ({ strapi }) => ({
   async findOne(ctx) {
     const { slug } = ctx.params;
-    const { skip = 0, limit = null } = ctx.query;
+    const { skip, limit } = ctx.query;
+
+    // @ts-ignore
+    const skipValue = skip ? JSON.parse(skip) : 0;
+    // @ts-ignore
+    const limitValue = limit ? JSON.parse(limit) : null;
 
     const query = {
       filters: { slug },
@@ -17,8 +22,6 @@ module.exports = createCoreController("api::page.page", ({ strapi }) => ({
     };
 
     const post = await strapi.entityService.findMany("api::page.page", query);
-
-    console.log("object", skip, limit);
 
     // @ts-ignore
     const allItems = post[0]?.packages;
@@ -28,15 +31,24 @@ module.exports = createCoreController("api::page.page", ({ strapi }) => ({
 
     let paginatedItems;
 
-    if (limit !== null) {
-      // @ts-ignore
-      paginatedItems = allItems.slice(skip, skip + limit);
+    if (limitValue !== null) {
+      paginatedItems = allItems.slice(skipValue, skipValue + limitValue);
     } else {
       paginatedItems = allItems;
     }
 
     // @ts-ignore
     post[0].packages = paginatedItems;
+
+    if (limitValue !== null) {
+      // @ts-ignore
+      post[0].pagination = {
+        // @ts-ignore
+        limit: limitValue !== null ? limitValue : post[0].packages.length,
+        skip: skipValue,
+        totalItems: allItems.length,
+      };
+    }
 
     return this.transformResponse(post);
   },
