@@ -429,15 +429,13 @@ export interface ApiMovieMovie extends Schema.CollectionType {
     contentRating: Attribute.String & Attribute.Required;
     genre: Attribute.String & Attribute.Required;
     poster: Attribute.String & Attribute.Required;
-    formattedDuration: Attribute.String & Attribute.Required;
-    releaseDate: Attribute.Date;
+    formattedDuration: Attribute.String;
     actors: Attribute.String;
     director: Attribute.String;
     creator: Attribute.String;
     audio: Attribute.String;
     subtitle: Attribute.String;
     availableForOffline: Attribute.String;
-    numberOfSeasons: Attribute.Integer & Attribute.Required;
     source: Attribute.String;
     seasonStartDate: Attribute.Date;
     sourceLink: Attribute.String;
@@ -447,6 +445,7 @@ export interface ApiMovieMovie extends Schema.CollectionType {
     type: Attribute.Enumeration<['Movie', 'TVSeries']> &
       Attribute.Required &
       Attribute.DefaultTo<'Movie'>;
+    releaseDate: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

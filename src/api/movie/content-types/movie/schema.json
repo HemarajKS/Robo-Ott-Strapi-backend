@@ -38,10 +38,7 @@
     },
     "formattedDuration": {
       "type": "string",
-      "required": true
-    },
-    "releaseDate": {
-      "type": "date"
+      "required": false
     },
     "actors": {
       "type": "string"
@@ -60,10 +57,6 @@
     },
     "availableForOffline": {
       "type": "string"
-    },
-    "numberOfSeasons": {
-      "type": "integer",
-      "required": true
     },
     "source": {
       "type": "string"
@@ -89,6 +82,9 @@
       ],
       "default": "Movie",
       "required": true
+    },
+    "releaseDate": {
+      "type": "string"
     }
   }
 }
