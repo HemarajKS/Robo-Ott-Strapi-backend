@@ -362,6 +362,137 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiFaqFaq extends Schema.CollectionType {
+  collectionName: 'faqs';
+  info: {
+    singularName: 'faq';
+    pluralName: 'faqs';
+    displayName: 'FAQ';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    accordionTitle: Attribute.String & Attribute.Required;
+    accordionDescription: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHeroHero extends Schema.CollectionType {
+  collectionName: 'heroes';
+  info: {
+    singularName: 'hero';
+    pluralName: 'heroes';
+    displayName: 'Hero';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    image: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::hero.hero', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::hero.hero', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMovieMovie extends Schema.CollectionType {
+  collectionName: 'movies';
+  info: {
+    singularName: 'movie';
+    pluralName: 'movies';
+    displayName: 'Data';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    url: Attribute.String & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    contentRating: Attribute.String & Attribute.Required;
+    genre: Attribute.String & Attribute.Required;
+    poster: Attribute.String & Attribute.Required;
+    formattedDuration: Attribute.String & Attribute.Required;
+    releaseDate: Attribute.Date;
+    actors: Attribute.String;
+    director: Attribute.String;
+    creator: Attribute.String;
+    audio: Attribute.String;
+    subtitle: Attribute.String;
+    availableForOffline: Attribute.String;
+    numberOfSeasons: Attribute.Integer & Attribute.Required;
+    source: Attribute.String;
+    seasonStartDate: Attribute.Date;
+    sourceLink: Attribute.String;
+    scrapedAt: Attribute.DateTime;
+    uniqueId: Attribute.UID &
+      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
+    type: Attribute.Enumeration<['Movie', 'TVSeries']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'Movie'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::movie.movie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::movie.movie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPagePage extends Schema.CollectionType {
+  collectionName: 'pages';
+  info: {
+    singularName: 'page';
+    pluralName: 'pages';
+    displayName: 'Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    meta: Attribute.Component<'meta.seo'>;
+    curation: Attribute.Component<'curation.curation'>;
+    packages: Attribute.DynamicZone<
+      ['page-components.faq', 'page-components.hero', 'page-components.rails']
+    > &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -787,256 +918,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiCarouselCarousel extends Schema.CollectionType {
-  collectionName: 'carousels';
-  info: {
-    singularName: 'carousel';
-    pluralName: 'carousels';
-    displayName: 'Carousel';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    contents: Attribute.DynamicZone<['carousel-items.tv-series']>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::carousel.carousel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::carousel.carousel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiContentTypeContentType extends Schema.CollectionType {
-  collectionName: 'content_types';
-  info: {
-    singularName: 'content-type';
-    pluralName: 'content-types';
-    displayName: 'contentType';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    type: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::content-type.content-type',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::content-type.content-type',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiFaqFaq extends Schema.CollectionType {
-  collectionName: 'faqs';
-  info: {
-    singularName: 'faq';
-    pluralName: 'faqs';
-    displayName: 'FAQ';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    accordionTitle: Attribute.String & Attribute.Required;
-    accordionDescription: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiHeroHero extends Schema.CollectionType {
-  collectionName: 'heroes';
-  info: {
-    singularName: 'hero';
-    pluralName: 'heroes';
-    displayName: 'Hero';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    image: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::hero.hero', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::hero.hero', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiMovieMovie extends Schema.CollectionType {
-  collectionName: 'movies';
-  info: {
-    singularName: 'movie';
-    pluralName: 'movies';
-    displayName: 'Movie';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    url: Attribute.String & Attribute.Required;
-    name: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    contentRating: Attribute.String & Attribute.Required;
-    genre: Attribute.String & Attribute.Required;
-    poster: Attribute.String & Attribute.Required;
-    formattedDuration: Attribute.String & Attribute.Required;
-    releaseDate: Attribute.Date;
-    actors: Attribute.String;
-    director: Attribute.String;
-    creator: Attribute.String;
-    audio: Attribute.String;
-    subtitle: Attribute.String;
-    availableForOffline: Attribute.String;
-    numberOfSeasons: Attribute.Integer & Attribute.Required;
-    source: Attribute.String;
-    seasonStartDate: Attribute.Date;
-    sourceLink: Attribute.String;
-    scrapedAt: Attribute.DateTime;
-    type: Attribute.Relation<
-      'api::movie.movie',
-      'oneToOne',
-      'api::content-type.content-type'
-    >;
-    uniqueId: Attribute.UID &
-      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::movie.movie',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::movie.movie',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPagePage extends Schema.CollectionType {
-  collectionName: 'pages';
-  info: {
-    singularName: 'page';
-    pluralName: 'pages';
-    displayName: 'Page';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    meta: Attribute.Component<'meta.seo'>;
-    curation: Attribute.Component<'curation.curation'>;
-    packages: Attribute.DynamicZone<
-      ['page-components.faq', 'page-components.hero', 'page-components.rails']
-    > &
-      Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTvSeriesTvSeries extends Schema.CollectionType {
-  collectionName: 'tv_serieses';
-  info: {
-    singularName: 'tv-series';
-    pluralName: 'tv-serieses';
-    displayName: 'TVSeries';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    url: Attribute.String & Attribute.Required;
-    name: Attribute.String & Attribute.Required;
-    type: Attribute.Relation<
-      'api::tv-series.tv-series',
-      'oneToOne',
-      'api::content-type.content-type'
-    >;
-    description: Attribute.Text & Attribute.Required;
-    contentRating: Attribute.String & Attribute.Required;
-    genre: Attribute.String;
-    poster: Attribute.String & Attribute.Required;
-    formattedDuration: Attribute.String;
-    releaseDate: Attribute.Date;
-    actors: Attribute.String;
-    director: Attribute.String;
-    creator: Attribute.String;
-    audio: Attribute.String;
-    subtitle: Attribute.String;
-    availableForOffline: Attribute.String;
-    numberOfSeasons: Attribute.Integer;
-    seasonStartDate: Attribute.Date;
-    source: Attribute.String;
-    sourceLink: Attribute.String;
-    scrapedAt: Attribute.DateTime;
-    uniqueId: Attribute.UID &
-      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::tv-series.tv-series',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::tv-series.tv-series',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1047,6 +928,10 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::faq.faq': ApiFaqFaq;
+      'api::hero.hero': ApiHeroHero;
+      'api::movie.movie': ApiMovieMovie;
+      'api::page.page': ApiPagePage;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -1055,13 +940,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::carousel.carousel': ApiCarouselCarousel;
-      'api::content-type.content-type': ApiContentTypeContentType;
-      'api::faq.faq': ApiFaqFaq;
-      'api::hero.hero': ApiHeroHero;
-      'api::movie.movie': ApiMovieMovie;
-      'api::page.page': ApiPagePage;
-      'api::tv-series.tv-series': ApiTvSeriesTvSeries;
     }
   }
 }

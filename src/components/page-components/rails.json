@@ -24,10 +24,10 @@
       "default": "Rails",
       "required": true
     },
-    "carousels": {
+    "contents": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::carousel.carousel"
+      "target": "api::movie.movie"
     }
   }
 }

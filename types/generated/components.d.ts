@@ -1,17 +1,25 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface CarouselItemsMovies extends Schema.Component {
+  collectionName: 'components_carousel_items_movies';
+  info: {
+    displayName: 'Movies';
+  };
+  attributes: {
+    movies: Attribute.Relation<
+      'carousel-items.movies',
+      'oneToMany',
+      'api::movie.movie'
+    >;
+  };
+}
+
 export interface CarouselItemsTvSeries extends Schema.Component {
   collectionName: 'components_carousel_items_tv_series';
   info: {
     displayName: 'TVSeries';
   };
-  attributes: {
-    tv_series: Attribute.Relation<
-      'carousel-items.tv-series',
-      'oneToMany',
-      'api::tv-series.tv-series'
-    >;
-  };
+  attributes: {};
 }
 
 export interface CurationCuration extends Schema.Component {
@@ -102,10 +110,10 @@ export interface PageComponentsRails extends Schema.Component {
     packageType: Attribute.Enumeration<['Rails']> &
       Attribute.Required &
       Attribute.DefaultTo<'Rails'>;
-    carousels: Attribute.Relation<
+    contents: Attribute.Relation<
       'page-components.rails',
       'oneToMany',
-      'api::carousel.carousel'
+      'api::movie.movie'
     >;
   };
 }
@@ -113,6 +121,7 @@ export interface PageComponentsRails extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'carousel-items.movies': CarouselItemsMovies;
       'carousel-items.tv-series': CarouselItemsTvSeries;
       'curation.curation': CurationCuration;
       'meta.seo': MetaSeo;

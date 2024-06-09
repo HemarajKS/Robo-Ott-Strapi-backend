@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_carousel_items_movies",
+  "info": {
+    "displayName": "Movies"
+  },
+  "options": {},
+  "attributes": {
+    "movies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::movie.movie"
+    }
+  }
+}

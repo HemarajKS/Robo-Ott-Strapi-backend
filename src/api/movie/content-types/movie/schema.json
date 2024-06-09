@@ -4,7 +4,7 @@
   "info": {
     "singularName": "movie",
     "pluralName": "movies",
-    "displayName": "Movie",
+    "displayName": "Data",
     "description": ""
   },
   "options": {
@@ -77,14 +77,18 @@
     "scrapedAt": {
       "type": "datetime"
     },
-    "type": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::content-type.content-type"
-    },
     "uniqueId": {
       "type": "customField",
       "customField": "plugin::strapi-advanced-uuid.uuid"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Movie",
+        "TVSeries"
+      ],
+      "default": "Movie",
+      "required": true
     }
   }
 }
