@@ -30,6 +30,9 @@
         "page-components.rails"
       ],
       "required": true
+    },
+    "slug": {
+      "type": "uid"
     }
   }
 }

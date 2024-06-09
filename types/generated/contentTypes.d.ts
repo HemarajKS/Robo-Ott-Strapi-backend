@@ -482,6 +482,7 @@ export interface ApiPagePage extends Schema.CollectionType {
       ['page-components.faq', 'page-components.hero', 'page-components.rails']
     > &
       Attribute.Required;
+    slug: Attribute.UID;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
