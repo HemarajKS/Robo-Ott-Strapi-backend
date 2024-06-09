@@ -11,6 +11,7 @@ module.exports = createCoreController("api::movie.movie", () => {
     async find(ctx) {
       ctx.query = { ...ctx.query, locale: "en" };
       const result = await super.find(ctx);
+
       const sanitizedData = result.data.map((item) => {
         const newData = {
           id: item?.attributes.uniqueId,
