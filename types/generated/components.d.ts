@@ -37,6 +37,36 @@ export interface CurationCuration extends Schema.Component {
   };
 }
 
+export interface MenuItem extends Schema.Component {
+  collectionName: 'components_menu_items';
+  info: {
+    displayName: 'Item';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    url: Attribute.String & Attribute.Required;
+    visibility: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+    children: Attribute.Component<'menu.sub-menu', true>;
+  };
+}
+
+export interface MenuSubMenu extends Schema.Component {
+  collectionName: 'components_menu_sub_menus';
+  info: {
+    displayName: 'Sub-menu';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    url: Attribute.String & Attribute.Required;
+    visibility: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+  };
+}
+
 export interface MetaSeo extends Schema.Component {
   collectionName: 'components_meta_seos';
   info: {
@@ -124,6 +154,8 @@ declare module '@strapi/types' {
       'carousel-items.movies': CarouselItemsMovies;
       'carousel-items.tv-series': CarouselItemsTvSeries;
       'curation.curation': CurationCuration;
+      'menu.item': MenuItem;
+      'menu.sub-menu': MenuSubMenu;
       'meta.seo': MetaSeo;
       'page-components.faq': PageComponentsFaq;
       'page-components.hero': PageComponentsHero;

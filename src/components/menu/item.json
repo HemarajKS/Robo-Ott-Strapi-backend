@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_menu_items",
+  "info": {
+    "displayName": "Item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "visibility": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "children": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.sub-menu"
+    }
+  }
+}
