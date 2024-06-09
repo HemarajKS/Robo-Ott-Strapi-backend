@@ -37,6 +37,17 @@ export interface CurationCuration extends Schema.Component {
   };
 }
 
+export interface FooterComponentsFooterComponets extends Schema.Component {
+  collectionName: 'components_footer_components_footer_componets';
+  info: {
+    displayName: 'Footer Componets';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    link: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface MenuItem extends Schema.Component {
   collectionName: 'components_menu_items';
   info: {
@@ -148,18 +159,32 @@ export interface PageComponentsRails extends Schema.Component {
   };
 }
 
+export interface RightsCopyright extends Schema.Component {
+  collectionName: 'components_rights_copyrights';
+  info: {
+    displayName: 'copyright';
+  };
+  attributes: {
+    text: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'\u00A9 2023-2024, OTT Reusable App, Robosoft'>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'carousel-items.movies': CarouselItemsMovies;
       'carousel-items.tv-series': CarouselItemsTvSeries;
       'curation.curation': CurationCuration;
+      'footer-components.footer-componets': FooterComponentsFooterComponets;
       'menu.item': MenuItem;
       'menu.sub-menu': MenuSubMenu;
       'meta.seo': MetaSeo;
       'page-components.faq': PageComponentsFaq;
       'page-components.hero': PageComponentsHero;
       'page-components.rails': PageComponentsRails;
+      'rights.copyright': RightsCopyright;
     }
   }
 }

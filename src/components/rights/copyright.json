@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_rights_copyrights",
+  "info": {
+    "displayName": "copyright"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "default": "© 2023-2024, OTT Reusable App, Robosoft",
+      "required": true
+    }
+  }
+}

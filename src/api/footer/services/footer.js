@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * menu-item service
+ * footer service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::menu-item.menu-item');
+module.exports = createCoreService('api::footer.footer');
