@@ -38,7 +38,7 @@ module.exports = createCoreController("api::page.page", ({ strapi }) => ({
     }
 
     // @ts-ignore
-    post[0].packages = paginatedItems;
+    post[0].curation.packages = paginatedItems;
 
     if (limitValue !== null) {
       // @ts-ignore
