@@ -859,6 +859,7 @@ export interface ApiHeroHero extends Schema.CollectionType {
     title: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     image: Attribute.String & Attribute.Required;
+    backgroundImage: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

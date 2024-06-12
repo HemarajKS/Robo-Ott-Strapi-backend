@@ -23,6 +23,9 @@
     "image": {
       "type": "string",
       "required": true
+    },
+    "backgroundImage": {
+      "type": "string"
     }
   }
 }

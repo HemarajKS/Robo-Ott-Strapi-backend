@@ -175,7 +175,6 @@ export interface PageComponentsHero extends Schema.Component {
       'oneToMany',
       'api::hero.hero'
     >;
-    backgroundImage: Attribute.String;
   };
 }
 
