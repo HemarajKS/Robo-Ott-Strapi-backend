@@ -152,9 +152,13 @@ export interface PageComponentsGenres extends Schema.Component {
   collectionName: 'components_page_components_genres';
   info: {
     displayName: 'Genres';
+    description: '';
   };
   attributes: {
     genres: Attribute.String;
+    packageType: Attribute.Enumeration<['Genres']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'Genres'>;
   };
 }
 
@@ -182,9 +186,13 @@ export interface PageComponentsMoviePoints extends Schema.Component {
   collectionName: 'components_page_components_movie_points';
   info: {
     displayName: 'MoviePoints';
+    description: '';
   };
   attributes: {
     moviePoints: Attribute.String;
+    packageType: Attribute.Enumeration<['MoviePoints']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'MoviePoints'>;
   };
 }
 
@@ -213,9 +221,13 @@ export interface PageComponentsReviews extends Schema.Component {
   collectionName: 'components_page_components_reviews';
   info: {
     displayName: 'Reviews';
+    description: '';
   };
   attributes: {
     review: Attribute.String;
+    packageType: Attribute.Enumeration<['Reviews']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'Reviews'>;
   };
 }
 

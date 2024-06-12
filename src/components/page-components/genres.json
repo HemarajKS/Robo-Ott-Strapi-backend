@@ -1,12 +1,21 @@
 {
   "collectionName": "components_page_components_genres",
   "info": {
-    "displayName": "Genres"
+    "displayName": "Genres",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "genres": {
       "type": "string"
+    },
+    "packageType": {
+      "type": "enumeration",
+      "enum": [
+        "Genres"
+      ],
+      "default": "Genres",
+      "required": true
     }
   }
 }

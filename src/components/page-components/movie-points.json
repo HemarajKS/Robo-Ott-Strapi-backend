@@ -1,12 +1,21 @@
 {
   "collectionName": "components_page_components_movie_points",
   "info": {
-    "displayName": "MoviePoints"
+    "displayName": "MoviePoints",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "moviePoints": {
       "type": "string"
+    },
+    "packageType": {
+      "type": "enumeration",
+      "enum": [
+        "MoviePoints"
+      ],
+      "required": true,
+      "default": "MoviePoints"
     }
   }
 }

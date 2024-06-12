@@ -1,12 +1,21 @@
 {
   "collectionName": "components_page_components_reviews",
   "info": {
-    "displayName": "Reviews"
+    "displayName": "Reviews",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "review": {
       "type": "string"
+    },
+    "packageType": {
+      "type": "enumeration",
+      "enum": [
+        "Reviews"
+      ],
+      "default": "Reviews",
+      "required": true
     }
   }
 }
