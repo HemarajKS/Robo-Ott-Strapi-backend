@@ -965,7 +965,10 @@ export interface ApiPagePage extends Schema.CollectionType {
         'page-components.faq',
         'page-components.hero',
         'page-components.rails',
-        'page-components.banner'
+        'page-components.banner',
+        'page-components.reviews',
+        'page-components.movie-points',
+        'page-components.genres'
       ]
     > &
       Attribute.Required;
