@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_page_components_movie_points",
+  "info": {
+    "displayName": "MoviePoints"
+  },
+  "options": {},
+  "attributes": {
+    "moviePoints": {
+      "type": "string"
+    }
+  }
+}

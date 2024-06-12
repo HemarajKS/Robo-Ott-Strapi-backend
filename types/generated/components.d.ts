@@ -22,6 +22,17 @@ export interface CarouselItemsTvSeries extends Schema.Component {
   attributes: {};
 }
 
+export interface ComponentsCta extends Schema.Component {
+  collectionName: 'components_components_ctas';
+  info: {
+    displayName: 'CTA';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    link: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface CurationCuration extends Schema.Component {
   collectionName: 'components_curation_curations';
   info: {
@@ -137,6 +148,16 @@ export interface PageComponentsFaq extends Schema.Component {
   };
 }
 
+export interface PageComponentsGenres extends Schema.Component {
+  collectionName: 'components_page_components_genres';
+  info: {
+    displayName: 'Genres';
+  };
+  attributes: {
+    genres: Attribute.String;
+  };
+}
+
 export interface PageComponentsHero extends Schema.Component {
   collectionName: 'components_page_components_heroes';
   info: {
@@ -144,7 +165,7 @@ export interface PageComponentsHero extends Schema.Component {
     description: '';
   };
   attributes: {
-    packageType: Attribute.Enumeration<['Hero']> &
+    packageType: Attribute.Enumeration<['Hero', 'SingleHero']> &
       Attribute.Required &
       Attribute.DefaultTo<'Hero'>;
     title: Attribute.String;
@@ -154,6 +175,17 @@ export interface PageComponentsHero extends Schema.Component {
       'oneToMany',
       'api::hero.hero'
     >;
+    backgroundImage: Attribute.String;
+  };
+}
+
+export interface PageComponentsMoviePoints extends Schema.Component {
+  collectionName: 'components_page_components_movie_points';
+  info: {
+    displayName: 'MoviePoints';
+  };
+  attributes: {
+    moviePoints: Attribute.String;
   };
 }
 
@@ -178,6 +210,16 @@ export interface PageComponentsRails extends Schema.Component {
   };
 }
 
+export interface PageComponentsReviews extends Schema.Component {
+  collectionName: 'components_page_components_reviews';
+  info: {
+    displayName: 'Reviews';
+  };
+  attributes: {
+    review: Attribute.String;
+  };
+}
+
 export interface RightsCopyright extends Schema.Component {
   collectionName: 'components_rights_copyrights';
   info: {
@@ -195,6 +237,7 @@ declare module '@strapi/types' {
     export interface Components {
       'carousel-items.movies': CarouselItemsMovies;
       'carousel-items.tv-series': CarouselItemsTvSeries;
+      'components.cta': ComponentsCta;
       'curation.curation': CurationCuration;
       'footer-components.footer-componets': FooterComponentsFooterComponets;
       'menu.item': MenuItem;
@@ -202,8 +245,11 @@ declare module '@strapi/types' {
       'meta.seo': MetaSeo;
       'page-components.banner': PageComponentsBanner;
       'page-components.faq': PageComponentsFaq;
+      'page-components.genres': PageComponentsGenres;
       'page-components.hero': PageComponentsHero;
+      'page-components.movie-points': PageComponentsMoviePoints;
       'page-components.rails': PageComponentsRails;
+      'page-components.reviews': PageComponentsReviews;
       'rights.copyright': RightsCopyright;
     }
   }

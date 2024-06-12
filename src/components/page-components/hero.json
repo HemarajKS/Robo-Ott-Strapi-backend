@@ -9,7 +9,8 @@
     "packageType": {
       "type": "enumeration",
       "enum": [
-        "Hero"
+        "Hero",
+        "SingleHero"
       ],
       "required": true,
       "default": "Hero"
@@ -24,6 +25,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::hero.hero"
+    },
+    "backgroundImage": {
+      "type": "string"
     }
   }
 }

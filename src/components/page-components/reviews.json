@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_page_components_reviews",
+  "info": {
+    "displayName": "Reviews"
+  },
+  "options": {},
+  "attributes": {
+    "review": {
+      "type": "string"
+    }
+  }
+}
