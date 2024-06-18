@@ -884,6 +884,7 @@ export interface ApiMenuMenu extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required;
     items: Attribute.DynamicZone<['menu.item']>;
+    logo: Attribute.Media<'images'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
