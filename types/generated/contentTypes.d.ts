@@ -900,7 +900,7 @@ export interface ApiMovieMovie extends Schema.CollectionType {
   info: {
     singularName: 'movie';
     pluralName: 'movies';
-    displayName: 'Data';
+    displayName: 'Shows/Movies';
     description: '';
   };
   options: {
