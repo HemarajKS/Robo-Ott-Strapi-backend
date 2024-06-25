@@ -8,10 +8,7 @@ module.exports = ({ env }) => ({
       },
     },
   },
-});
-
-module.exports = {
   "media-prefix": {
     enabled: true,
   },
-};
+});
