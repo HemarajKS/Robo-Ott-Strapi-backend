@@ -985,6 +985,121 @@ export interface ApiPagePage extends Schema.CollectionType {
   };
 }
 
+export interface ApiPlanPlan extends Schema.CollectionType {
+  collectionName: 'plans';
+  info: {
+    singularName: 'plan';
+    pluralName: 'plans';
+    displayName: 'Plan';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    plan_id: Attribute.String & Attribute.Required & Attribute.Unique;
+    name: Attribute.String & Attribute.Required;
+    description: Attribute.String;
+    price: Attribute.Integer & Attribute.Required;
+    subscriptionPer: Attribute.Enumeration<['Year', 'Month', 'Week']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'Year'>;
+    currency: Attribute.Component<'currency.currency'> & Attribute.Required;
+    features: Attribute.Component<'label-selection.label-selection', true> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::plan.plan', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::plan.plan', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSubscriptionSubscription extends Schema.SingleType {
+  collectionName: 'subscriptions';
+  info: {
+    singularName: 'subscription';
+    pluralName: 'subscriptions';
+    displayName: 'Subscription';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    curation: Attribute.Component<'curation.curation'>;
+    meta: Attribute.Component<'meta.seo'>;
+    plans: Attribute.Relation<
+      'api::subscription.subscription',
+      'oneToMany',
+      'api::plan.plan'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::subscription.subscription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::subscription.subscription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSubscriptionLabelSubscriptionLabel
+  extends Schema.CollectionType {
+  collectionName: 'subscription_labels';
+  info: {
+    singularName: 'subscription-label';
+    pluralName: 'subscription-labels';
+    displayName: 'Subscription-Label';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    subTitle: Attribute.String;
+    label_id: Attribute.UID<
+      undefined,
+      undefined,
+      {
+        'disable-regenerate': true;
+      }
+    > &
+      Attribute.CustomField<
+        'plugin::strapi-advanced-uuid.uuid',
+        {
+          'disable-regenerate': true;
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::subscription-label.subscription-label',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::subscription-label.subscription-label',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1009,6 +1124,9 @@ declare module '@strapi/types' {
       'api::menu.menu': ApiMenuMenu;
       'api::movie.movie': ApiMovieMovie;
       'api::page.page': ApiPagePage;
+      'api::plan.plan': ApiPlanPlan;
+      'api::subscription.subscription': ApiSubscriptionSubscription;
+      'api::subscription-label.subscription-label': ApiSubscriptionLabelSubscriptionLabel;
     }
   }
 }

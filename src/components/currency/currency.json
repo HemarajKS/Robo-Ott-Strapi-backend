@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_currency_currencies",
+  "info": {
+    "displayName": "currency"
+  },
+  "options": {},
+  "attributes": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "symbol": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

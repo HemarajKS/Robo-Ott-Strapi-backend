@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plans",
+  "info": {
+    "singularName": "plan",
+    "pluralName": "plans",
+    "displayName": "Plan",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "plan_id": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "regex": "^[^\\s]*_?[^\\s]*$"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer",
+      "required": true
+    },
+    "subscriptionPer": {
+      "type": "enumeration",
+      "enum": [
+        "Year",
+        "Month",
+        "Week"
+      ],
+      "default": "Year",
+      "required": true
+    },
+    "currency": {
+      "displayName": "currency",
+      "type": "component",
+      "repeatable": false,
+      "component": "currency.currency",
+      "required": true
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "label-selection.label-selection",
+      "required": true
+    }
+  }
+}

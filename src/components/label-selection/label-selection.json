@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_label_selection_label_selections",
+  "info": {
+    "displayName": "LabelSelection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "subscription_label": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::subscription-label.subscription-label"
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

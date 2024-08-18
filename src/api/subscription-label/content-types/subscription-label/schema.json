@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subscription_labels",
+  "info": {
+    "singularName": "subscription-label",
+    "pluralName": "subscription-labels",
+    "displayName": "Subscription-Label",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subTitle": {
+      "type": "string",
+      "required": false
+    },
+    "label_id": {
+      "type": "customField",
+      "options": {
+        "disable-regenerate": true
+      },
+      "customField": "plugin::strapi-advanced-uuid.uuid"
+    }
+  }
+}

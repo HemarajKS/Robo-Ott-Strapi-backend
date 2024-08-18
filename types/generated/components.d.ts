@@ -48,6 +48,26 @@ export interface CurationCuration extends Schema.Component {
   };
 }
 
+export interface CurrencyCurrency extends Schema.Component {
+  collectionName: 'components_currency_currencies';
+  info: {
+    displayName: 'currency';
+  };
+  attributes: {
+    code: Attribute.String & Attribute.Required;
+    symbol: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface FeaturesFeatures extends Schema.Component {
+  collectionName: 'components_features_features';
+  info: {
+    displayName: 'features';
+    description: '';
+  };
+  attributes: {};
+}
+
 export interface FooterComponentsFooterComponets extends Schema.Component {
   collectionName: 'components_footer_components_footer_componets';
   info: {
@@ -56,6 +76,22 @@ export interface FooterComponentsFooterComponets extends Schema.Component {
   attributes: {
     name: Attribute.String & Attribute.Required;
     link: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface LabelSelectionLabelSelection extends Schema.Component {
+  collectionName: 'components_label_selection_label_selections';
+  info: {
+    displayName: 'LabelSelection';
+    description: '';
+  };
+  attributes: {
+    subscription_label: Attribute.Relation<
+      'label-selection.label-selection',
+      'oneToOne',
+      'api::subscription-label.subscription-label'
+    >;
+    value: Attribute.String & Attribute.Required;
   };
 }
 
@@ -250,7 +286,10 @@ declare module '@strapi/types' {
       'carousel-items.tv-series': CarouselItemsTvSeries;
       'components.cta': ComponentsCta;
       'curation.curation': CurationCuration;
+      'currency.currency': CurrencyCurrency;
+      'features.features': FeaturesFeatures;
       'footer-components.footer-componets': FooterComponentsFooterComponets;
+      'label-selection.label-selection': LabelSelectionLabelSelection;
       'menu.item': MenuItem;
       'menu.sub-menu': MenuSubMenu;
       'meta.seo': MetaSeo;
