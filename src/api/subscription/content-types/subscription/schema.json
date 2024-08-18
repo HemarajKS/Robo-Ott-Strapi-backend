@@ -28,6 +28,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::plan.plan"
+    },
+    "labels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subscription-label.subscription-label"
     }
   }
 }

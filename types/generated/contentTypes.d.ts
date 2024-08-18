@@ -1036,6 +1036,11 @@ export interface ApiSubscriptionSubscription extends Schema.SingleType {
       'oneToMany',
       'api::plan.plan'
     >;
+    labels: Attribute.Relation<
+      'api::subscription.subscription',
+      'oneToMany',
+      'api::subscription-label.subscription-label'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
